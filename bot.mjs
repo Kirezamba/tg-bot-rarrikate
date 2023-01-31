@@ -3,8 +3,8 @@ const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
 
 config();
-const TELEGRAM_API_TOKEN = "6182880062:AAGc9dCyJJcH8oNAALW-Tqhy2f9EGgCIED0";
-const RARRIKATE_CHAT_ID = "594220752";
+const TELEGRAM_API_TOKEN = process.env.TELEGRAM_API_TOKEN;
+const RARRIKATE_CHAT_ID = process.env.RARRIKATE_CHAT_ID;
 const token = TELEGRAM_API_TOKEN;
 
 const rarrikateChatId = RARRIKATE_CHAT_ID;
@@ -87,11 +87,13 @@ https://www.tinkoff.ru/rm/elaeva.ekaterina5/mGeOh69614
         `Секунду, проверяем вашу оплату. 
       Это может занять некоторое время...`
       );
-      await bot.sendMessage(
-        rarrikateChatId,
-        `${cbMsg.from.username} ${cbMsg.from.last_name} ${cbMsg.from.first_name}`
-      );
+      // await bot.sendMessage(
+      //   rarrikateChatId,
+      //   `${cbMsg.from.username} ${cbMsg.from.last_name} ${cbMsg.from.first_name}`
+      // );
     }
   });
 };
 start();
+
+export default bot;
