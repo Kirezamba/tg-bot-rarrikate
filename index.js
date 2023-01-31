@@ -3,9 +3,11 @@ const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
 
 config();
-const token = process.env.TELEGRAM_API_TOKEN;
+const TELEGRAM_API_TOKEN = "6182880062:AAGc9dCyJJcH8oNAALW-Tqhy2f9EGgCIED0";
+const RARRIKATE_CHAT_ID = "594220752";
+const token = TELEGRAM_API_TOKEN;
 
-const rarrikateChatId = process.env.RARRIKATE_CHAT_ID;
+const rarrikateChatId = RARRIKATE_CHAT_ID;
 
 const bot = new TelegramApi(token, { polling: true });
 
@@ -21,10 +23,6 @@ const start = () => {
     {
       command: initMsg,
       description: "Начальное приветствие",
-    },
-    {
-      command: infoMsg,
-      description: "Получить информацию",
     },
   ]);
 
