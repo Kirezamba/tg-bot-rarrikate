@@ -1,3 +1,7 @@
+import TeleBot from "telebot";
+
+const bot = new TeleBot(process.env.TELEGRAM_BOT_TOKEN);
+
 const { config } = require("dotenv");
 const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
@@ -5,8 +9,6 @@ const { accessButton, continuousButtons, payDoneButton } = require("./options");
 config();
 
 const rarrikateChatId = RARRIKATE_CHAT_ID;
-
-const bot = new TelegramApi(token, { polling: true });
 
 const start = () => {
   const TELEGRAM_API_TOKEN = process.env.TELEGRAM_API_TOKEN;
