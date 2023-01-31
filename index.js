@@ -1,9 +1,11 @@
+const { config } = require("dotenv");
 const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
 
-const token = "6182880062:AAGc9dCyJJcH8oNAALW-Tqhy2f9EGgCIED0";
-const rarrikate = "rarrikate";
-const rarrikateChatId = "594220752";
+config();
+const token = process.env.TELEGRAM_API_TOKEN;
+
+const rarrikateChatId = process.env.RARRIKATE_CHAT_ID;
 
 const bot = new TelegramApi(token, { polling: true });
 
@@ -43,7 +45,6 @@ const start = () => {
   bot.on("callback_query", async cbMsg => {
     const answer = cbMsg.data;
     const cbChatId = cbMsg.from.id;
-    // console.log("answer:", answer);
     if (answer === "access") {
       await bot.sendMessage(
         cbChatId,
