@@ -2,6 +2,16 @@ const { config } = require("dotenv");
 const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
 
+const TOKEN = process.env.TELEGRAM_API_TOKEN;
+const TelegramBot = require("../..");
+const options = {
+  webHook: {
+    // Just use 443 directly
+    port: 443,
+  },
+};
+
+const url = "YOUR_DOMAIN_ALIAS" || process.env.NOW_URL;
 config();
 const TELEGRAM_API_TOKEN = process.env.TELEGRAM_API_TOKEN;
 const RARRIKATE_CHAT_ID = process.env.RARRIKATE_CHAT_ID;
@@ -10,6 +20,8 @@ const token = TELEGRAM_API_TOKEN;
 const rarrikateChatId = RARRIKATE_CHAT_ID;
 
 const bot = new TelegramApi(token, { polling: true });
+
+bot.setWebHook(`${url}/bot${token}`);
 
 const start = () => {
   const TELEGRAM_API_TOKEN = process.env.TELEGRAM_API_TOKEN;
