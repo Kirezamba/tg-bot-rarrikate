@@ -3,6 +3,9 @@ const TelegramApi = require("node-telegram-bot-api");
 const { accessButton, continuousButtons, payDoneButton } = require("./options");
 
 config();
+const TELEGRAM_API_TOKEN = process.env.TELEGRAM_API_TOKEN;
+const RARRIKATE_CHAT_ID = process.env.RARRIKATE_CHAT_ID;
+const token = TELEGRAM_API_TOKEN;
 
 const rarrikateChatId = RARRIKATE_CHAT_ID;
 
@@ -91,5 +94,3 @@ https://www.tinkoff.ru/rm/elaeva.ekaterina5/mGeOh69614
   });
 };
 start();
-
-export default bot;
